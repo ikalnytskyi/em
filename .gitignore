@@ -1,0 +1,11 @@
+# ignore setuptool's temp files
+*.egg-info/
+build/
+dist/
+
+# ignore python's temp files
+*.pyc
+
+# ignore common virtualenv folders
+venv/
+.venv/

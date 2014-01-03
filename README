@@ -1,0 +1,41 @@
+                                //  em  //
+
+                    empasize expressions in the stdout
+
+                            (c) Igor Kalnitsky
+
+
+    ~ What is em?
+
+      The em program is a terminal tool that prints FILE(s), or standard
+      input to standard output and highlights a certain expression.
+
+      The expression will be highlighted iff stdout refers to the terminal
+      and that terminal is ANSI-compatible.
+
+
+    ~ Why the name em?
+
+      The name is an abbreviation of emphasize, a synonym of highlight.
+      BTW, it's easy to write and it's easy to remember since HTML has
+      <em> tag with similar meaning.
+
+
+    ~ Requirements?
+
+      The terminal must be an ANSI-compatible. This criterion is met by
+      most popular terminal emulators on Linux, Unix and MacOS.
+
+
+    ~ How to install?
+
+        $ (sudo) pip install em
+
+
+    ~ How to use?
+
+      The most practical usecase for me:
+
+        $ tail -f /path/to/log | em "ERROR|CRITICAL" RED
+
+      See the documentations or manpage for more details.
