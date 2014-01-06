@@ -108,9 +108,11 @@ def get_arguments():
         '-i', '--ignore-case', action='store_true',
         help=_('ignore case distinctions'))
     parser.add_argument(
+        '-s', '--safe-output', action='store_true',
+        help=_('print ansi sequences only on tty'))
+    parser.add_argument(
         '--version', action='version', version='%(prog)s ' + __version__)
 
-    # TODO: add flag to remove ANSI-escapes from non-tty streams
     # TODO: add option to load pattern/format settings from the file
 
     return parser.parse_args()
@@ -146,12 +148,17 @@ def main():
     for filename in arguments.files:
         try:
             stream = sys.stdin if filename == '-' else open(filename, 'r')
+
+            if arguments.safe_output and not sys.stdout.isatty():
+                sys.stdout.write(stream.read())
+            else:
+                emphasize(stream, patterns)
+
         except FileNotFoundError as e:
             show_error_and_exit(2, '{0}: {1}: {2}'.format(
                 __name__, e.filename, e.strerror
             ))
         finally:
-            emphasize(stream, patterns)
             if filename != '-':
                 stream.close()
 
