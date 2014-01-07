@@ -1,0 +1,60 @@
+# Copyright (C) 2014, Igor Kalnitsky
+# This file is distributed under the same license as the em program.
+msgid ""
+msgstr ""
+"Project-Id-Version: em\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-08 00:50+0200\n"
+"PO-Revision-Date: 2014-01-08 01:15+0300\n"
+"Last-Translator: Igor Kalnitsky <igor@kalnitsky.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Language: ru\n"
+
+#: ../__init__.py:93
+#, python-format
+msgid ""
+"The %(prog)s program is a terminal tool that prints FILE(s), or standard "
+"input to standard output and highlights the expressions that are matched the "
+"PATTERN."
+msgstr ""
+"%(prog)s — это программа для терминала, которая печатает файл(ы), или "
+"стандартный поток ввода в стандартный поток вывода, выделяя выражения, "
+"которые соответствует некоторому входному шаблону."
+
+#: ../__init__.py:97
+msgid ""
+"With no FILE, or when FILE is -, read standard input.  The FORMAT option "
+"must be one of: BOLD, UNDERLINE, GREY, RED, GREEN, YELLOW, BLUE, MAGENTA, "
+"CYAN or WHITE."
+msgstr ""
+"Читать стандартный поток ввода, если FILE не указан или указан как -.  "
+"Параметр FORMAT может принимать следующие значения: BOLD, UNDERLINE, GREY, "
+"RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN и WHITE."
+
+#: ../__init__.py:104
+msgid "a pattern to highlight"
+msgstr "шаблон для поиска"
+
+#: ../__init__.py:107
+msgid "a color to highlight matched expressions"
+msgstr "цвет, которым выделять совпадения"
+
+#: ../__init__.py:110
+msgid "search for pattern in these file(s)"
+msgstr "искать шаблон в этих файлах"
+
+#: ../__init__.py:113
+msgid "ignore case distinctions"
+msgstr "игнорировать регистр при поиске"
+
+#: ../__init__.py:116
+msgid "print ansi sequences only on tty"
+msgstr "печатать ansi-коды только в терминал"
+
+#: ../__init__.py:133
+msgid "Unknown format value"
+msgstr "Неизвестное значение параметра FORMAT"

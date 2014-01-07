@@ -17,7 +17,7 @@ em is cool
 
 .. code:: bash
 
-    $ tail -f /path/to/log | em "ERROR|CRITICAL" RED
+    $ tail -f /path/to/log | em "DEBUG|INFO" GREEN | em "WARN" yellow
 
 
 and easy to install

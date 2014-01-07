@@ -17,6 +17,7 @@
 from __future__ import print_function, unicode_literals
 
 import re
+import os
 import sys
 import gettext
 import argparse
@@ -64,7 +65,7 @@ def show_error_and_exit(status_code, message):
 
 def emphasize(stream, patterns):
     """
-    Emphasize a given ``patterns`` in a given ``stream`` and prints the
+    Emphasize a given ``patterns`` in a given ``stream`` and print the
     result to ``stdout``. The ``patterns`` argument must be represent as
     a dictionay where the key is a pattern, and the value is a format
     lexem (e.g. RED, BLUE, UNDERLINE).
@@ -135,8 +136,8 @@ def validate_arguments(arguments):
 
 
 def main():
-    # TODO: specify locale dir
-    gettext.install('em')
+    localedir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'locale')
+    gettext.install('em', localedir)
 
     # parse command line arguments and validate it.
     # terminate the program if error was occured.

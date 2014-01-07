@@ -24,7 +24,7 @@
 
     ~ Requirements?
 
-      The terminal must be an ANSI-compatible. This criterion is met by
+      The terminal must be ANSI-compatible. This criterion is met by
       most popular terminal emulators on Linux, Unix and MacOS.
 
 
