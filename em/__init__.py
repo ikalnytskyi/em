@@ -5,7 +5,8 @@
     ~~
 
     The em program is a terminal tool that prints FILE(s), or standard input
-    to standard output and highlights a certain expression.
+    to standard output and highlights the expressions that are matched the
+    PATTERN.
 
     The expression will be highlighted iff stdout refers to the terminal
     and that terminal is ANSI-compatible.
@@ -68,9 +69,10 @@ def emphasize(stream, patterns):
     a dictionay where the key is a pattern, and the value is a format
     lexem (e.g. RED, BLUE, UNDERLINE).
     """
-    # compile pattern for quick execution
-    get_flags = lambda v: re.I if v['ignore_case'] else 0
-    patterns = {re.compile('(%s)' % k, get_flags(v)): v for k, v in patterns.items()}
+    # compile patterns for quick execution
+    def re_compile(k, v):
+        return re.compile('(%s)' % k, re.I if v['ignore_case'] else 0)
+    patterns = {re_compile(k, v): v for k, v in patterns.items()}
 
     # colorize matched patterns with ANSI-escapes
     for line in stream:
@@ -89,27 +91,30 @@ def get_arguments():
     parser = argparse.ArgumentParser(
         description=_(
             'The %(prog)s program is a terminal tool that prints FILE(s), '
-            'or standard input to standard output and highlights a certain '
-            'expression.'),
+            'or standard input to standard output and highlights the '
+            'expressions that are matched the PATTERN.'),
         epilog=_(
-            'With no FILE, or when FILE is -, read standard input.')
+            'With no FILE, or when FILE is -, read standard input.'
+            '  '
+            'The FORMAT option must be one of: BOLD, UNDERLINE, GREY, RED, '
+            'GREEN, YELLOW, BLUE, MAGENTA, CYAN or WHITE.')
     )
 
-    parser.add_argument(
-        'pattern', metavar='PATTERN',
-        help=_('a pattern to highlight'))
-    parser.add_argument(
-        'format', metavar='FORMAT',
-        help=_('a color to format the matched pattern'))
-    parser.add_argument(
-        'files', metavar='FILE', nargs='*', default=['-'],
-        help=_('search pattern in those file(s)'))
-    parser.add_argument(
-        '-i', '--ignore-case', action='store_true',
-        help=_('ignore case distinctions'))
-    parser.add_argument(
-        '-s', '--safe-output', action='store_true',
-        help=_('print ansi sequences only on tty'))
+    arg = parser.add_argument('pattern', metavar='PATTERN')
+    arg.help = _('a pattern to highlight')
+
+    arg = parser.add_argument('format', metavar='FORMAT')
+    arg.help = _('a color to highlight matched expressions')
+
+    arg = parser.add_argument('files', metavar='FILE', nargs='*', default=['-'])
+    arg.help = _('search for pattern in these file(s)')
+
+    arg = parser.add_argument('-i', '--ignore-case', action='store_true')
+    arg.help = _('ignore case distinctions')
+
+    arg = parser.add_argument('-s', '--safe-output', action='store_true')
+    arg.help = _('print ansi sequences only on tty')
+
     parser.add_argument(
         '--version', action='version', version='%(prog)s ' + __version__)
 
