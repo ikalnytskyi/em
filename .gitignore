@@ -8,4 +8,7 @@ dist/
 
 # ignore common virtualenv folders
 venv/
+venv27/
+venv32/
+venv33/
 .venv/

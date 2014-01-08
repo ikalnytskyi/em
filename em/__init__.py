@@ -136,8 +136,14 @@ def validate_arguments(arguments):
 
 
 def main():
+    PY2 = sys.version_info[0] == 2
+
+    # initialize localization subsystem
     localedir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'locale')
-    gettext.install('em', localedir)
+    if PY2:
+        gettext.install('em', localedir, unicode=True)
+    else:
+        gettext.install('em', localedir)
 
     # parse command line arguments and validate it.
     # terminate the program if error was occured.
