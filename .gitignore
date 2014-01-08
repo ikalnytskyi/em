@@ -12,3 +12,6 @@ venv27/
 venv32/
 venv33/
 .venv/
+
+# ignore sphinx temp files
+docs/_build
