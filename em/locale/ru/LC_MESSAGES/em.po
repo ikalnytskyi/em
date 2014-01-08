@@ -4,26 +4,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: em\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-08 00:50+0200\n"
+"POT-Creation-Date: 2014-01-09 01:22+0200\n"
 "PO-Revision-Date: 2014-01-08 01:15+0300\n"
 "Last-Translator: Igor Kalnitsky <igor@kalnitsky.org>\n"
 "Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
-"Language: ru\n"
 
 #: ../__init__.py:93
 #, python-format
 msgid ""
-"The %(prog)s program is a terminal tool that prints FILE(s), or standard "
-"input to standard output and highlights the expressions that are matched the "
+"%(prog)s program is a terminal tool that prints FILE(s), or standard input "
+"to standard output and highlights the expressions that are matched the "
 "PATTERN."
 msgstr ""
 "%(prog)s — это программа для терминала, которая печатает файл(ы), или "
-"стандартный поток ввода в стандартный поток вывода, выделяя выражения, "
-"которые соответствует некоторому входному шаблону."
+"стандартный поток ввода на стандартный поток вывода, а также подсвечивает "
+"выражения, которые удовлетворяют некоторому входному шаблону."
 
 #: ../__init__.py:97
 msgid ""
@@ -41,7 +41,7 @@ msgstr "шаблон для поиска"
 
 #: ../__init__.py:107
 msgid "a color to highlight matched expressions"
-msgstr "цвет, которым выделять совпадения"
+msgstr "цвет/стиль выделения"
 
 #: ../__init__.py:110
 msgid "search for pattern in these file(s)"

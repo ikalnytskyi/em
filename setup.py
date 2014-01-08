@@ -4,12 +4,11 @@
 em
 ==
 
-The em program is a terminal tool that prints FILE(s), or standard
-input to standard output and highlights the expressions that are
-matched the PATTERN.
+em program is a terminal tool that prints FILE(s), or standard input
+to standard output and highlights the expressions that are matched
+the PATTERN.
 
-The expression will be highlighted iff stdout refers to the terminal
-and that terminal is ANSI-compatible.
+The expression will be highlighted iff the terminal is ANSI-compatible.
 
 
 em is cool

@@ -4,12 +4,11 @@
     em
     ~~
 
-    The em program is a terminal tool that prints FILE(s), or standard input
-    to standard output and highlights the expressions that are matched the
-    PATTERN.
+    em program is a terminal tool that prints FILE(s), or standard input
+    to standard output and highlights the expressions that are matched
+    the PATTERN.
 
-    The expression will be highlighted iff stdout refers to the terminal
-    and that terminal is ANSI-compatible.
+    The expression will be highlighted iff the terminal is ANSI-compatible.
 
     :copyright: (c) 2014, Igor Kalnitsky
     :license: BSD, see LICENSE for details
@@ -23,7 +22,7 @@ import gettext
 import argparse
 
 
-__version__ = '0.1-dev'
+__version__ = '0.1'
 
 
 #: FileNotFoundError has been introduced in Python 3.3, and replaced
@@ -91,7 +90,7 @@ def get_arguments():
     """
     parser = argparse.ArgumentParser(
         description=_(
-            'The %(prog)s program is a terminal tool that prints FILE(s), '
+            '%(prog)s program is a terminal tool that prints FILE(s), '
             'or standard input to standard output and highlights the '
             'expressions that are matched the PATTERN.'),
         epilog=_(
