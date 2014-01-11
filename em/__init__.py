@@ -24,6 +24,8 @@ import argparse
 
 __version__ = '0.1'
 
+BUF_SIZE = 32768
+
 
 #: FileNotFoundError has been introduced in Python 3.3, and replaced
 #: more abstract IOError.
@@ -74,14 +76,18 @@ def emphasize(stream, patterns):
         return re.compile('(%s)' % k, re.I if v['ignore_case'] else 0)
     patterns = {re_compile(k, v): v for k, v in patterns.items()}
 
-    # colorize matched patterns with ANSI-escapes
-    for line in stream:
-        for pattern, style in patterns.items():
-            line = pattern.sub(r'{style}\1{reset}'.format(
-                style=get_ansi_color(style['format']),
-                reset=get_ansi_color('reset')
-            ), line)
-        sys.stdout.write(line)
+    # don't use stream.read() here as it can possibly block until the block of
+    # the requested size is read fully, while os.read() returns immediately
+    # after something has been read
+    for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), ''):
+        # colorize matched patterns with ANSI-escapes
+        for line in buf.decode().split('\n'):
+            for pattern, style in patterns.items():
+                line = pattern.sub(r'{style}\1{reset}'.format(
+                    style=get_ansi_color(style['format']),
+                    reset=get_ansi_color('reset')
+                ), line)
+            sys.stdout.write(line + '\n')
 
 
 def get_arguments():
