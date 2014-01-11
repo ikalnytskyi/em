@@ -4,6 +4,14 @@ THE CHANGELOG
 Here you can see the full list of changes between each em release.
 
 
+Version 0.2
+```````````
+
+(release date to be anounced)
+
+- Improve processing of /dev/stdin input for Python 2.x.
+
+
 Version 0.1
 ```````````
 
