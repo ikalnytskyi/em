@@ -65,7 +65,7 @@ Here is a command line interface of em::
     be one of: BOLD, UNDERLINE, GREY, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN or
     WHITE.
 
-The CLI is clear, so I no need to comment. :)
+The CLI is clear, so I don't need to comment. :)
 
 .. _em: https://github.com/ikalnitsky/em
 

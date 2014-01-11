@@ -22,7 +22,7 @@ import gettext
 import argparse
 
 
-__version__ = '0.1'
+__version__ = '0.2-dev'
 
 BUF_SIZE = 32768
 
@@ -78,7 +78,7 @@ def emphasize(stream, patterns):
 
     # don't use stream.read() here as it can possibly block until the block of
     # the requested size is read fully, while os.read() returns immediately
-    # after something has been read
+    # after something has been read (actual for python 2.x)
     for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), ''):
         # colorize matched patterns with ANSI-escapes
         for line in buf.decode().split('\n'):
@@ -124,6 +124,7 @@ def get_arguments():
     parser.add_argument(
         '--version', action='version', version='%(prog)s ' + __version__)
 
+    # TODO: add option to highlight entire line
     # TODO: add option to load pattern/format settings from the file
 
     return parser.parse_args()
