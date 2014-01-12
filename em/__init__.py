@@ -25,6 +25,7 @@ import argparse
 __version__ = '0.2-dev'
 
 BUF_SIZE = 32768
+PY2 = sys.version_info[0] == 2
 
 
 #: FileNotFoundError has been introduced in Python 3.3, and replaced
@@ -73,15 +74,17 @@ def emphasize(stream, patterns):
     """
     # compile patterns for quick execution
     def re_compile(k, v):
-        return re.compile('(%s)' % k, re.I if v['ignore_case'] else 0)
+        flags = re.UNICODE
+        flags |= re.I if v['ignore_case'] else 0
+        return re.compile('(%s)' % k, flags)
     patterns = {re_compile(k, v): v for k, v in patterns.items()}
 
     # don't use stream.read() here as it can possibly block until the block of
     # the requested size is read fully, while os.read() returns immediately
     # after something has been read (actual for python 2.x)
-    for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), ''):
+    for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), b''):
         # colorize matched patterns with ANSI-escapes
-        for line in buf.decode().split('\n'):
+        for line in buf.decode(sys.getfilesystemencoding()).split('\n'):
             for pattern, style in patterns.items():
                 line = pattern.sub(r'{style}\1{reset}'.format(
                     style=get_ansi_color(style['format']),
@@ -106,7 +109,10 @@ def get_arguments():
             'GREEN, YELLOW, BLUE, MAGENTA, CYAN or WHITE.')
     )
 
-    arg = parser.add_argument('pattern', metavar='PATTERN')
+    arg = parser.add_argument(
+        'pattern', metavar='PATTERN',
+        type=lambda v: v.decode(sys.getfilesystemencoding()) if PY2 else v
+    )
     arg.help = _('a pattern to highlight')
 
     arg = parser.add_argument('format', metavar='FORMAT')
@@ -142,8 +148,6 @@ def validate_arguments(arguments):
 
 
 def main():
-    PY2 = sys.version_info[0] == 2
-
     # initialize localization subsystem
     localedir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'locale')
     if PY2:
