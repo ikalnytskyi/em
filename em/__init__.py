@@ -84,7 +84,7 @@ def emphasize(stream, patterns):
     # after something has been read (actual for python 2.x)
     for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), b''):
         # colorize matched patterns with ANSI-escapes
-        for line in buf.decode(sys.getfilesystemencoding()).split('\n'):
+        for line in buf.decode(sys.getfilesystemencoding()).splitlines():
             for pattern, style in patterns.items():
                 if style['line_mode'] and pattern.search(line):
                     line = '{style}{line}{reset}'.format(
