@@ -10,6 +10,7 @@ Version 0.2
 (release date to be anounced)
 
 - Improve processing of /dev/stdin input for Python 2.x.
+- Rename ``--safe-output`` option to ``--safe-mode``.
 
 
 Version 0.1

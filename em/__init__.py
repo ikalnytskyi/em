@@ -118,8 +118,8 @@ def get_arguments():
     arg = parser.add_argument('-i', '--ignore-case', action='store_true')
     arg.help = _('ignore case distinctions')
 
-    arg = parser.add_argument('-s', '--safe-output', action='store_true')
-    arg.help = _('print ansi sequences only on tty')
+    arg = parser.add_argument('-s', '--safe-mode', action='store_true')
+    arg.help = _('highlight only when stdout refers to tty')
 
     parser.add_argument(
         '--version', action='version', version='%(prog)s ' + __version__)
@@ -167,7 +167,7 @@ def main():
         try:
             stream = sys.stdin if filename == '-' else open(filename, 'r')
 
-            if arguments.safe_output and not sys.stdout.isatty():
+            if arguments.safe_mode and not sys.stdout.isatty():
                 sys.stdout.write(stream.read())
             else:
                 emphasize(stream, patterns)
