@@ -79,7 +79,7 @@ def emphasize(stream, patterns):
     # don't use stream.read() here as it can possibly block until the block of
     # the requested size is read fully, while os.read() returns immediately
     # after something has been read (actual for python 2.x)
-    for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), ''):
+    for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), b''):
         # colorize matched patterns with ANSI-escapes
         for line in buf.decode().split('\n'):
             for pattern, style in patterns.items():
