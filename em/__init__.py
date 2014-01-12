@@ -74,7 +74,9 @@ def emphasize(stream, patterns):
     """
     # compile patterns for quick execution
     def re_compile(k, v):
-        return re.compile('(%s)' % k, re.I if v['ignore_case'] else 0)
+        flags = re.UNICODE
+        flags |= re.I if v['ignore_case'] else 0
+        return re.compile('(%s)' % k, flags)
     patterns = {re_compile(k, v): v for k, v in patterns.items()}
 
     # don't use stream.read() here as it can possibly block until the block of
