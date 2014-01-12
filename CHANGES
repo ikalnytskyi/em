@@ -1,5 +1,5 @@
-THE CHANGELOG
-=============
+em changelog
+============
 
 Here you can see the full list of changes between each em release.
 
@@ -10,10 +10,12 @@ Version 0.2
 (release date to be anounced)
 
 - Improve processing of /dev/stdin input in Python 2.x.
+- Add ``--line-mode`` option to highlight entire line.
 - Rename ``--safe-output`` option to ``--safe-mode``.
 - Fix handling of EOF in Python 3.x.
 - Fix handling of UTF-8 args and files in Python 2.x.
 - Fix ignore_case for non-ascii strings in Python 2.x.
+- Fix reading files with non-ascii names in Python 2.x.
 
 
 Version 0.1

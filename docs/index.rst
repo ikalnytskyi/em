@@ -1,9 +1,8 @@
-Welcome to em's documentation!
-==============================
+Welcome to em!
+==============
 
-em_ program is a terminal tool that prints FILE(s), or standard input
-to standard output and highlights the expressions that are matched the
-PATTERN.
+em_ is a terminal tool that prints FILE(s), or standard input to standard
+output and highlights the expressions that are matched the PATTERN.
 
 .. image:: /_static/em-example.png
     :align: center
@@ -45,9 +44,9 @@ Options
 
 Here is a command line interface of em::
 
-    usage: em [-h] [-i] [-s] [--version] PATTERN FORMAT [FILE [FILE ...]]
+    usage: em [-h] [-i] [-l] [-s] [--version] PATTERN FORMAT [FILE [FILE ...]]
 
-    The em program is a terminal tool that prints FILE(s), or standard input to
+    em program is a terminal tool that prints FILE(s), or standard input to
     standard output and highlights the expressions that are matched the PATTERN.
 
     positional arguments:
@@ -58,7 +57,8 @@ Here is a command line interface of em::
     optional arguments:
       -h, --help         show this help message and exit
       -i, --ignore-case  ignore case distinctions
-      -s, --safe-output  print ansi sequences only on tty
+      -l, --line-mode    highlight entire line
+      -s, --safe-mode    highlight only when stdout refers to tty
       --version          show program's version number and exit
 
     With no FILE, or when FILE is -, read standard input. The FORMAT option must

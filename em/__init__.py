@@ -86,10 +86,17 @@ def emphasize(stream, patterns):
         # colorize matched patterns with ANSI-escapes
         for line in buf.decode(sys.getfilesystemencoding()).split('\n'):
             for pattern, style in patterns.items():
-                line = pattern.sub(r'{style}\1{reset}'.format(
-                    style=get_ansi_color(style['format']),
-                    reset=get_ansi_color('reset')
-                ), line)
+                if style['line_mode'] and pattern.search(line):
+                    line = '{style}{line}{reset}'.format(
+                        style=get_ansi_color(style['format']),
+                        line=line,
+                        reset=get_ansi_color('reset')
+                    )
+                else:
+                    line = pattern.sub(r'{style}\1{reset}'.format(
+                        style=get_ansi_color(style['format']),
+                        reset=get_ansi_color('reset')
+                    ), line)
             sys.stdout.write(line + '\n')
 
 
@@ -97,6 +104,9 @@ def get_arguments():
     """
     Create and parse command line interface.
     """
+    def _str_to_unicode(string):
+        return string.decode(sys.getfilesystemencoding()) if PY2 else string
+
     parser = argparse.ArgumentParser(
         description=_(
             '%(prog)s program is a terminal tool that prints FILE(s), '
@@ -109,20 +119,22 @@ def get_arguments():
             'GREEN, YELLOW, BLUE, MAGENTA, CYAN or WHITE.')
     )
 
-    arg = parser.add_argument(
-        'pattern', metavar='PATTERN',
-        type=lambda v: v.decode(sys.getfilesystemencoding()) if PY2 else v
-    )
+    arg = parser.add_argument('pattern', metavar='PATTERN')
     arg.help = _('a pattern to highlight')
+    arg.type = _str_to_unicode
 
     arg = parser.add_argument('format', metavar='FORMAT')
     arg.help = _('a color to highlight matched expressions')
 
     arg = parser.add_argument('files', metavar='FILE', nargs='*', default=['-'])
     arg.help = _('search for pattern in these file(s)')
+    arg.type = _str_to_unicode
 
     arg = parser.add_argument('-i', '--ignore-case', action='store_true')
     arg.help = _('ignore case distinctions')
+
+    arg = parser.add_argument('-l', '--line-mode', action='store_true')
+    arg.help = _('highlight entire line')
 
     arg = parser.add_argument('-s', '--safe-mode', action='store_true')
     arg.help = _('highlight only when stdout refers to tty')
@@ -130,7 +142,6 @@ def get_arguments():
     parser.add_argument(
         '--version', action='version', version='%(prog)s ' + __version__)
 
-    # TODO: add option to highlight entire line
     # TODO: add option to load pattern/format settings from the file
 
     return parser.parse_args()
@@ -163,6 +174,7 @@ def main():
         arguments.pattern: {
             'format': arguments.format,
             'ignore_case': arguments.ignore_case,
+            'line_mode': arguments.line_mode,
         }
     }
 
