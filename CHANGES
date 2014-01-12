@@ -9,8 +9,11 @@ Version 0.2
 
 (release date to be anounced)
 
-- Improve processing of /dev/stdin input for Python 2.x.
+- Improve processing of /dev/stdin input in Python 2.x.
 - Rename ``--safe-output`` option to ``--safe-mode``.
+- Fix handling of EOF in Python 3.x.
+- Fix handling of UTF-8 args and files in Python 2.x.
+- Fix ignore_case for non-ascii strings in Python 2.x.
 
 
 Version 0.1
