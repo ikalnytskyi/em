@@ -24,9 +24,9 @@ import argparse
 
 __version__ = '0.2-dev'
 
-BUF_SIZE = 32768
-PY2 = sys.version_info[0] == 2
 
+#: True if Python 2.x interpreter was detected.
+PY2 = sys.version_info[0] == 2
 
 #: FileNotFoundError has been introduced in Python 3.3, and replaced
 #: more abstract IOError.
@@ -65,6 +65,18 @@ def show_error_and_exit(status_code, message):
     sys.exit(status_code)
 
 
+def iterate_over_stream(stream):
+    """
+    Iterate over lines from a given ``stream``. Unlike stream's iterative
+    interface this function doesn't block code execution in Python 2.x.
+    """
+    BUF_SIZE = 32768
+
+    for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), b''):
+        for line in buf.decode(sys.getfilesystemencoding()).splitlines():
+            yield line
+
+
 def emphasize(stream, patterns):
     """
     Emphasize a given ``patterns`` in a given ``stream`` and print the
@@ -75,29 +87,28 @@ def emphasize(stream, patterns):
     # compile patterns for quick execution
     def re_compile(k, v):
         flags = re.UNICODE
-        flags |= re.I if v['ignore_case'] else 0
+        flags |= re.IGNORECASE if v['ignore_case'] else 0
         return re.compile('(%s)' % k, flags)
     patterns = {re_compile(k, v): v for k, v in patterns.items()}
 
-    # don't use stream.read() here as it can possibly block until the block of
-    # the requested size is read fully, while os.read() returns immediately
-    # after something has been read (actual for python 2.x)
-    for buf in iter(lambda: os.read(stream.fileno(), BUF_SIZE), b''):
+    # don't use stream.read() (or its iterative interface) here as it can
+    # possibly block until the block of the requested size is read fully
+    # (actual for python 2.x)
+    for line in iterate_over_stream(stream):
         # colorize matched patterns with ANSI-escapes
-        for line in buf.decode(sys.getfilesystemencoding()).splitlines():
-            for pattern, style in patterns.items():
-                if style['line_mode'] and pattern.search(line):
-                    line = '{style}{line}{reset}'.format(
-                        style=get_ansi_color(style['format']),
-                        line=line,
-                        reset=get_ansi_color('reset')
-                    )
-                else:
-                    line = pattern.sub(r'{style}\1{reset}'.format(
-                        style=get_ansi_color(style['format']),
-                        reset=get_ansi_color('reset')
-                    ), line)
-            sys.stdout.write(line + '\n')
+        for pattern, settings in patterns.items():
+            if settings['line_mode'] and pattern.search(line):
+                line = '{style}{line}{reset}'.format(
+                    style=get_ansi_color(settings['format']),
+                    line=line,
+                    reset=get_ansi_color('reset')
+                )
+            else:
+                line = pattern.sub(r'{style}\1{reset}'.format(
+                    style=get_ansi_color(settings['format']),
+                    reset=get_ansi_color('reset')
+                ), line)
+        print(line)
 
 
 def get_arguments():
@@ -161,10 +172,8 @@ def validate_arguments(arguments):
 def main():
     # initialize localization subsystem
     localedir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'locale')
-    if PY2:
-        gettext.install('em', localedir, unicode=True)
-    else:
-        gettext.install('em', localedir)
+    kwargs = {'unicode': True, } if PY2 else {}
+    gettext.install('em', localedir, **kwargs)
 
     # parse command line arguments and validate it.
     # terminate the program if error was occured.
