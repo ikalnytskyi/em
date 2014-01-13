@@ -7,7 +7,7 @@ Here you can see the full list of changes between each Em release.
 Version 0.2
 ```````````
 
-(release date to be anounced)
+Released on January 14, 2014.
 
 - Improve processing of /dev/stdin input in Python 2.x.
 - Add ``--line-mode`` option to highlight entire line.
