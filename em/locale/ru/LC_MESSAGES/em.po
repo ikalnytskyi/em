@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: em\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-09 01:22+0200\n"
+"POT-Creation-Date: 2014-01-14 00:04+0200\n"
 "PO-Revision-Date: 2014-01-08 01:15+0300\n"
 "Last-Translator: Igor Kalnitsky <igor@kalnitsky.org>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../__init__.py:93
+#: ../__init__.py:123
 #, python-format
 msgid ""
 "%(prog)s program is a terminal tool that prints FILE(s), or standard input "
@@ -25,7 +25,7 @@ msgstr ""
 "стандартный поток ввода на стандартный поток вывода, а также подсвечивает "
 "выражения, которые удовлетворяют некоторому входному шаблону."
 
-#: ../__init__.py:97
+#: ../__init__.py:127
 msgid ""
 "With no FILE, or when FILE is -, read standard input.  The FORMAT option "
 "must be one of: BOLD, UNDERLINE, GREY, RED, GREEN, YELLOW, BLUE, MAGENTA, "
@@ -35,26 +35,38 @@ msgstr ""
 "Параметр FORMAT может принимать следующие значения: BOLD, UNDERLINE, GREY, "
 "RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN и WHITE."
 
-#: ../__init__.py:104
+#: ../__init__.py:134
 msgid "a pattern to highlight"
 msgstr "шаблон для поиска"
 
-#: ../__init__.py:107
+#: ../__init__.py:138
 msgid "a color to highlight matched expressions"
 msgstr "цвет/стиль выделения"
 
-#: ../__init__.py:110
+#: ../__init__.py:141
 msgid "search for pattern in these file(s)"
 msgstr "искать шаблон в этих файлах"
 
-#: ../__init__.py:113
+#: ../__init__.py:145
 msgid "ignore case distinctions"
 msgstr "игнорировать регистр при поиске"
 
-#: ../__init__.py:116
-msgid "print ansi sequences only on tty"
-msgstr "печатать ansi-коды только в терминал"
+#: ../__init__.py:148
+msgid "highlight entire line"
+msgstr "выделять всю строку"
 
-#: ../__init__.py:133
+#: ../__init__.py:151
+msgid "highlight only when stdout refers to tty"
+msgstr "выделять, если stdout связан с терминалом"
+
+#: ../__init__.py:155 ../__init__.py:161
+msgid "show program's version number and exit"
+msgstr "показать информацию о версии и выйти"
+
+#: ../__init__.py:160
+msgid "show this help message and exit"
+msgstr "показать эту справку и выйти"
+
+#: ../__init__.py:173
 msgid "Unknown format value"
 msgstr "Неизвестное значение параметра FORMAT"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-09 01:22+0200\n"
+"POT-Creation-Date: 2014-01-14 00:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../__init__.py:93
+#: ../__init__.py:123
 #, python-format
 msgid ""
 "%(prog)s program is a terminal tool that prints FILE(s), or standard input "
@@ -25,33 +25,45 @@ msgid ""
 "PATTERN."
 msgstr ""
 
-#: ../__init__.py:97
+#: ../__init__.py:127
 msgid ""
 "With no FILE, or when FILE is -, read standard input.  The FORMAT option "
 "must be one of: BOLD, UNDERLINE, GREY, RED, GREEN, YELLOW, BLUE, MAGENTA, "
 "CYAN or WHITE."
 msgstr ""
 
-#: ../__init__.py:104
+#: ../__init__.py:134
 msgid "a pattern to highlight"
 msgstr ""
 
-#: ../__init__.py:107
+#: ../__init__.py:138
 msgid "a color to highlight matched expressions"
 msgstr ""
 
-#: ../__init__.py:110
+#: ../__init__.py:141
 msgid "search for pattern in these file(s)"
 msgstr ""
 
-#: ../__init__.py:113
+#: ../__init__.py:145
 msgid "ignore case distinctions"
 msgstr ""
 
-#: ../__init__.py:116
-msgid "print ansi sequences only on tty"
+#: ../__init__.py:148
+msgid "highlight entire line"
 msgstr ""
 
-#: ../__init__.py:133
+#: ../__init__.py:151
+msgid "highlight only when stdout refers to tty"
+msgstr ""
+
+#: ../__init__.py:155 ../__init__.py:161
+msgid "show program's version number and exit"
+msgstr ""
+
+#: ../__init__.py:160
+msgid "show this help message and exit"
+msgstr ""
+
+#: ../__init__.py:173
 msgid "Unknown format value"
 msgstr ""

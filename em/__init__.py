@@ -150,10 +150,15 @@ def get_arguments():
     arg = parser.add_argument('-s', '--safe-mode', action='store_true')
     arg.help = _('highlight only when stdout refers to tty')
 
-    parser.add_argument(
-        '--version', action='version', version='%(prog)s ' + __version__)
+    arg = parser.add_argument('--version', action='version')
+    arg.version = '%(prog)s ' + __version__
+    arg.help = _("show program's version number and exit")
 
     # TODO: add option to load pattern/format settings from the file
+
+    # localization trick (originally stores in argparse module)
+    _('show this help message and exit')
+    _("show program's version number and exit")
 
     return parser.parse_args()
 
