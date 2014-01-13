@@ -1,30 +1,28 @@
 #!/usr/bin/env python
 # coding: utf-8
 """
-em
-==
+Em
+--
 
-em program is a terminal tool that prints FILE(s), or standard input
-to standard output and highlights the expressions that are matched
-the PATTERN.
+Em is a terminal tool that prints FILE(s), or standard input to standard
+output and highlights the expressions that are matched the PATTERN.
 
 The expression will be highlighted iff the terminal is ANSI-compatible.
 
 
-em is cool
-----------
+Em is Cool
+``````````
 
 .. code:: bash
 
     $ tail -f /path/to/log | em "DEBUG|INFO" GREEN | em "WARN" yellow
 
 
-and easy to install
--------------------
+Links
+`````
 
-.. code:: bash
-
-    $ (sudo) pip install em
+* `documentation <http://em.readthedocs.org/>
+* `source code <https://github.com/ikalnitsky/em>
 
 """
 from setuptools import setup
@@ -47,14 +45,16 @@ setup(
         'console_scripts': ['em = em:main'],
     },
     classifiers=[
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'Topic :: Utilities',
+        'Environment :: Console',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'License :: OSI Approved :: BSD License',
     ],
     platforms=['Linux', 'MacOS', 'Unix']
 )
