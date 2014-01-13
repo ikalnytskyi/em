@@ -21,8 +21,8 @@ Em is Cool
 Links
 `````
 
-* `documentation <http://em.readthedocs.org/>
-* `source code <https://github.com/ikalnitsky/em>
+* `documentation <http://em.readthedocs.org/>`_
+* `source code <https://github.com/ikalnitsky/em>`_
 
 """
 from setuptools import setup
