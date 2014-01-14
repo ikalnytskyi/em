@@ -65,7 +65,7 @@ def error(statuscode, cause, message):
 
 def iterate_over_stream(stream):
     """
-    Iterate over lines from a given ``stream``. Unlike stream's iterative
+    Iterate over lines from a given `stream`. Unlike stream's iterative
     interface this function doesn't block code execution in Python 2.x.
     """
     BUF_SIZE = 32768
@@ -75,12 +75,34 @@ def iterate_over_stream(stream):
             yield line
 
 
+def emphasize_line(line, pattern, color):
+    """
+    Highlight a given `line` with a given `color` if the `pattern` has
+    been found in the line.
+    """
+    if pattern.search(line):
+        color = get_ansi_color(color)
+        reset = get_ansi_color('reset')
+        return '{0}{1}{2}'.format(color, line, reset)
+    return line
+
+
+def emphasize_pattern(line, pattern, color):
+    """
+    Search for `pattern` in the `line` and highlight it if it has been
+    found.
+    """
+    color = get_ansi_color(color)
+    reset = get_ansi_color('reset')
+    return pattern.sub(r'{0}\1{1}'.format(color, reset), line)
+
+
 def emphasize(stream, patterns):
     """
-    Emphasize a given ``patterns`` in a given ``stream`` and print the
-    result to ``stdout``. The ``patterns`` argument must be represent as
-    a dictionay where the key is a pattern, and the value is a format
-    lexem (e.g. RED, BLUE, UNDERLINE).
+    Emphasize a given `patterns` in a given `stream` and print the result
+    to `stdout`. The `patterns` argument must be represent as a dictionry
+    where the key is a pattern, and the value is a format lexem
+    (e.g. RED, BLUE, UNDERLINE).
     """
     # compile patterns for quick execution
     def re_compile(k, v):
@@ -93,19 +115,12 @@ def emphasize(stream, patterns):
     # possibly block until the block of the requested size is read fully
     # (actual for python 2.x)
     for line in iterate_over_stream(stream):
-        # colorize matched patterns with ANSI-escapes
         for pattern, settings in patterns.items():
-            if settings['line_mode'] and pattern.search(line):
-                line = '{style}{line}{reset}'.format(
-                    style=get_ansi_color(settings['format']),
-                    line=line,
-                    reset=get_ansi_color('reset')
-                )
+            color = settings['format']
+            if settings['line_mode']:
+                line = emphasize_line(line, pattern, color)
             else:
-                line = pattern.sub(r'{style}\1{reset}'.format(
-                    style=get_ansi_color(settings['format']),
-                    reset=get_ansi_color('reset')
-                ), line)
+                line = emphasize_pattern(line, pattern, color)
         print(line)
 
 
@@ -190,22 +205,23 @@ def main():
     # iterate over the files and highlight the given patterns
     for filename in arguments.files:
         try:
+            # bind variable to stdin or file
             stream = sys.stdin if filename == '-' else open(filename, 'r')
 
+            # skip emphasizing process in safe mode iff stdout is atty
             if arguments.safe_mode and not sys.stdout.isatty():
                 sys.stdout.write(stream.read())
             else:
                 emphasize(stream, patterns)
 
+            # don't clode stdin
+            if filename != '-':
+                stream.close()
+
         # since Python 3.3 `IOEror` has been merge into `OSError`, but
         # still available as alias to the last one
         except IOError as e:
-            error(1, '{0}: {1}: {2}'.format(
-                __name__, e.filename, e.strerror
-            ))
-        finally:
-            if filename != '-':
-                stream.close()
+            error(1, e.filename, e.strerror)
 
 
 if __name__ == '__main__':
