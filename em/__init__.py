@@ -25,13 +25,8 @@ import argparse
 __version__ = '0.3-dev'
 
 
-#: True if Python 2.x interpreter was detected.
+#: True if Python 2.x interpreter was detected
 PY2 = sys.version_info[0] == 2
-
-#: FileNotFoundError has been introduced in Python 3.3, and replaced
-#: more abstract IOError.
-if not hasattr(__builtins__, 'FileNotFoundError'):
-    FileNotFoundError = IOError
 
 
 def get_ansi_color(color):
@@ -57,12 +52,15 @@ def get_ansi_color(color):
     return colors.get(color.lower())
 
 
-def show_error_and_exit(status_code, message):
+def error(statuscode, cause, message):
     """
-    Print a given error message to standard error and terminate the program.
+    Print a given `message` to standard error and terminate the program
+    with `statuscode` value. It's a good practice to use Unix convention
+    for status code: `2` for command line syntax error and `1` for all
+    other kind of errors.
     """
-    print(message, file=sys.stderr)
-    sys.exit(status_code)
+    print('{0}: {1}: {2}'.format(__name__, cause, message), file=sys.stderr)
+    sys.exit(statuscode)
 
 
 def iterate_over_stream(stream):
@@ -91,7 +89,7 @@ def emphasize(stream, patterns):
         return re.compile('(%s)' % k, flags)
     patterns = {re_compile(k, v): v for k, v in patterns.items()}
 
-    # don't use stream.read() (or its iterative interface) here as it can
+    # don't use `stream.read()` (or its iterative interface) here as it can
     # possibly block until the block of the requested size is read fully
     # (actual for python 2.x)
     for line in iterate_over_stream(stream):
@@ -168,10 +166,7 @@ def validate_arguments(arguments):
     Validate arguments from the command line.
     """
     if not get_ansi_color(arguments.format):
-        show_error_and_exit(2, '{0}: {1}: {2}'.format(
-            __name__, arguments.format,
-            _('Unknown format value')
-        ))
+        error(2, arguments.format, _('Unknown format value'))
 
 
 def main():
@@ -202,8 +197,10 @@ def main():
             else:
                 emphasize(stream, patterns)
 
-        except FileNotFoundError as e:
-            show_error_and_exit(2, '{0}: {1}: {2}'.format(
+        # since Python 3.3 `IOEror` has been merge into `OSError`, but
+        # still available as alias to the last one
+        except IOError as e:
+            error(1, '{0}: {1}: {2}'.format(
                 __name__, e.filename, e.strerror
             ))
         finally:
