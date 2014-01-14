@@ -41,6 +41,7 @@ setup(
     packages=[
         'em',
     ],
+    include_package_data=True,
     entry_points={
         'console_scripts': ['em = em:main'],
     },
