@@ -4,6 +4,22 @@ Em Changelog
 Here you can see the full list of changes between each Em release.
 
 
+Version 0.3
+```````````
+
+(release date to be announced)
+
+- More readable code.
+
+
+Version 0.2.1
+`````````````
+
+Released on January 15, 2014.
+
+- Install localization files with `./setup.py install`.
+
+
 Version 0.2
 ```````````
 

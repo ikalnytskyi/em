@@ -38,10 +38,10 @@ setup(
     author_email='igor@kalnitsky.org',
     description='Highlight some PATTERN in terminal\'s STDOUT',
     long_description=__doc__,
+    include_package_data=True,
     packages=[
         'em',
     ],
-    include_package_data=True,
     entry_points={
         'console_scripts': ['em = em:main'],
     },
