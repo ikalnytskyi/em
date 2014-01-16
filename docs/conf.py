@@ -31,5 +31,3 @@ pygments_style = 'sphinx'
 # html output settings
 html_theme = 'default'
 html_static_path = ['_static']
-html_show_sourcelink = True
-htmlhelp_basename = 'emdoc'

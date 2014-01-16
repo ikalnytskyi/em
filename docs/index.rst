@@ -1,7 +1,9 @@
-Welcome to em!
-==============
+.. title:: Welcome to Em
 
-em_ is a terminal tool that prints FILE(s), or standard input to standard
+Introduction
+------------
+
+Em is a terminal tool that prints FILE(s), or standard input to standard
 output and highlights the expressions that are matched the PATTERN.
 
 .. image:: /_static/em-example.png
@@ -15,39 +17,40 @@ and MacOS.
 Installation
 ------------
 
-You will need Python 2.7, 3.2 or above to get started. If you already
-have it, feel free to install em throuh pip util::
+Em is a small script written in Python without any further dependencies
+but things that are shipped with Python 2.7, Python 3.2 or above. Quick
+installation::
 
-    $ (sudo) pip install em
+    $ [sudo] pip install em
 
 
 Quickstart
 ----------
 
-em is cool and easy to use. The most practical usecase for me::
+Em is cool and easy to use. The most practical usecase for me::
 
     $ tail -f /path/to/log | em "ERROR" red | em "iphone:" green
 
-The example above highlights all occurences of «ERROR» in red and all
-occurences of «iphone:» in green when watching the log.
+The example above highlights all occurrences of «ERROR» in red and all
+occurrences of «iphone:» in green when watching the log.
 
 But you can use em in the following way::
 
     $ em "ERROR|CRITICAL" red /path/to/log
 
-which prints the log and highlights all occurences of «ERROR» or
+which prints the log and highlights all occurrences of «ERROR» or
 «CRITICAL» in red.
 
 
 Options
 -------
 
-Here is a command line interface of em::
+Here is a command line interface of Em::
 
-    usage: em [-h] [-i] [-l] [-s] [--version] PATTERN FORMAT [FILE [FILE ...]]
+    usage: em [-h] [-i] [-l] [-v] PATTERN FORMAT [FILE [FILE ...]]
 
-    em program is a terminal tool that prints FILE(s), or standard input to
-    standard output and highlights the expressions that are matched the PATTERN.
+    Em is a terminal tool that prints FILE(s), or standard input to standard
+    output and highlights the expressions that are matched the PATTERN.
 
     positional arguments:
       PATTERN            a pattern to highlight
@@ -58,14 +61,29 @@ Here is a command line interface of em::
       -h, --help         show this help message and exit
       -i, --ignore-case  ignore case distinctions
       -l, --line-mode    highlight entire line
-      -s, --safe-mode    highlight only when stdout refers to tty
-      --version          show program's version number and exit
+      -v, --version      show program's version number and exit
 
     With no FILE, or when FILE is -, read standard input. The FORMAT option must
     be one of: BOLD, UNDERLINE, GREY, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN or
     WHITE.
 
-The CLI is clear, so I don't need to comment. :)
+The CLI is clear, but some option descriptions are below:
 
-.. _em: https://github.com/ikalnitsky/em
+======================   =====================================================
+ ``--ignore-case``        Case insensitive search for the PATTERN.
+----------------------   -----------------------------------------------------
+ ``--line-mode``          Highlights the entire line if PATTERN was found in
+                          the line.
+======================   =====================================================
 
+
+Contribute
+----------
+
+Found a bug? Have a good idea for improving Em? Go to `em's github`_ page
+and create a new issue or fork. Also, if you like what I'm doing I would
+appreciate some support through `gittip`_.
+
+
+.. _em's github:  https://github.com/ikalnitsky/em
+.. _gittip:  https://www.gittip.com/ikalnitsky/
