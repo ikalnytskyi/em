@@ -4,9 +4,8 @@
     em
     ~~
 
-    em program is a terminal tool that prints FILE(s), or standard input
-    to standard output and highlights the expressions that are matched
-    the PATTERN.
+    Em is a terminal tool that prints FILE(s), or standard input to standard
+    output and highlights the expressions that are matched the PATTERN.
 
     The expression will be highlighted iff the terminal is ANSI-compatible.
 
@@ -133,9 +132,9 @@ def get_arguments():
 
     parser = argparse.ArgumentParser(
         description=_(
-            '%(prog)s program is a terminal tool that prints FILE(s), '
-            'or standard input to standard output and highlights the '
-            'expressions that are matched the PATTERN.'),
+            'Em is a terminal tool that prints FILE(s), or standard '
+            'input to standard output and highlights the expressions that '
+            'are matched the PATTERN.'),
         epilog=_(
             'With no FILE, or when FILE is -, read standard input.'
             '  '
@@ -160,10 +159,7 @@ def get_arguments():
     arg = parser.add_argument('-l', '--line-mode', action='store_true')
     arg.help = _('highlight entire line')
 
-    arg = parser.add_argument('-s', '--safe-mode', action='store_true')
-    arg.help = _('highlight only when stdout refers to tty')
-
-    arg = parser.add_argument('--version', action='version')
+    arg = parser.add_argument('-v', '--version', action='version')
     arg.version = '%(prog)s ' + __version__
     arg.help = _("show program's version number and exit")
 
@@ -205,16 +201,10 @@ def main():
     # iterate over the files and highlight the given patterns
     for filename in arguments.files:
         try:
-            # bind variable to stdin or file
             stream = sys.stdin if filename == '-' else open(filename, 'r')
+            emphasize(stream, patterns)
 
-            # skip emphasizing process in safe mode iff stdout is atty
-            if arguments.safe_mode and not sys.stdout.isatty():
-                sys.stdout.write(stream.read())
-            else:
-                emphasize(stream, patterns)
-
-            # don't clode stdin
+            # don't close stdin
             if filename != '-':
                 stream.close()
 

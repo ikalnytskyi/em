@@ -10,6 +10,8 @@ Version 0.3
 (release date to be announced)
 
 - More readable code.
+- Remove ``--safe-mode`` option since it's no sense to use this
+  software when stdout isn't refers to the terminal.
 
 
 Version 0.2.1
