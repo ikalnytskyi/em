@@ -25,6 +25,8 @@
       The terminal must be ANSI-compatible. This criterion is met by
       most popular terminal emulators on Linux, Unix and MacOS.
 
+      Also, you need Python 2.7, Python 3.2 or above to run Em.
+
 
     ~ How to install?
 
@@ -38,3 +40,9 @@
         $ tail -f /path/to/log | em "ERROR" red | em "WARNING" yellow
 
       See the documentations for details: http://em.readthedocs.org/
+
+
+    ~ How to contribute?
+
+      You can report a bug, fix it or share a good idea. You even
+      can make some donate via https://www.gittip.com/ikalnitsky/.
