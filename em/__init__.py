@@ -120,7 +120,7 @@ def emphasize(stream, patterns):
                 line = emphasize_line(line, pattern, color)
             else:
                 line = emphasize_pattern(line, pattern, color)
-        print(line)
+        print(line.encode(sys.getfilesystemencoding()) if PY2 else line)
 
 
 def get_arguments():
