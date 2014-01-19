@@ -66,7 +66,6 @@ Here is a command line interface of Em::
     With no FILE, or when FILE is -, read standard input. The FORMAT option must
     be one of: BOLD, UNDERLINE, [ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW,
     [ON]BLUE, [ON]MAGENTA, [ON]CYAN or [ON]WHITE.
-    usage: em [-h] [-i] [-l] [-v] PATTERN FORMAT [FILE [FILE ...]]
 
 The CLI is clear, but some option descriptions are below:
 
