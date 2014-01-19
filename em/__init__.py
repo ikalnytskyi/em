@@ -38,7 +38,7 @@ def get_ansi_color(color):
         'bold':         '\033[1m',
         'underline':    '\033[4m',
 
-        # colors
+        # foregrounds
         'grey':         '\033[30m',
         'red':          '\033[31m',
         'green':        '\033[32m',
@@ -47,6 +47,16 @@ def get_ansi_color(color):
         'magenta':      '\033[35m',
         'cyan':         '\033[36m',
         'white':        '\033[37m',
+
+        # backgrounds
+        'ongrey':       '\033[40m',
+        'onred':        '\033[41m',
+        'ongreen':      '\033[42m',
+        'onyellow':     '\033[43m',
+        'onblue':       '\033[44m',
+        'onmagenta':    '\033[45m',
+        'oncyan':       '\033[46m',
+        'onwhite':      '\033[47m',
     }
     return colors.get(color.lower())
 
@@ -138,8 +148,13 @@ def get_arguments():
         epilog=_(
             'With no FILE, or when FILE is -, read standard input.'
             '  '
-            'The FORMAT option must be one of: BOLD, UNDERLINE, GREY, RED, '
-            'GREEN, YELLOW, BLUE, MAGENTA, CYAN or WHITE.')
+            'The FORMAT option must be one of: BOLD, UNDERLINE, [ON]GREY, '
+            '[ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE, [ON]MAGENTA, [ON]CYAN '
+            'or [ON]WHITE.'),
+
+        # disable it and add help option manually
+        # we need this trick to localize help message
+        add_help=False
     )
 
     arg = parser.add_argument('pattern', metavar='PATTERN')
@@ -163,11 +178,10 @@ def get_arguments():
     arg.version = '%(prog)s ' + __version__
     arg.help = _("show program's version number and exit")
 
-    # TODO: add option to load pattern/format settings from the file
+    arg = parser.add_argument('-h', '--help', action='help')
+    arg.help = _('show this help message and exit')
 
-    # localization trick (originally stores in argparse module)
-    _('show this help message and exit')
-    _("show program's version number and exit")
+    # TODO: add option to load pattern/format settings from the file
 
     return parser.parse_args()
 

@@ -47,7 +47,7 @@ Options
 
 Here is a command line interface of Em::
 
-    usage: em [-h] [-i] [-l] [-v] PATTERN FORMAT [FILE [FILE ...]]
+    usage: em [-i] [-l] [-v] [-h] PATTERN FORMAT [FILE [FILE ...]]
 
     Em is a terminal tool that prints FILE(s), or standard input to standard
     output and highlights the expressions that are matched the PATTERN.
@@ -58,14 +58,15 @@ Here is a command line interface of Em::
       FILE               search for pattern in these file(s)
 
     optional arguments:
-      -h, --help         show this help message and exit
       -i, --ignore-case  ignore case distinctions
       -l, --line-mode    highlight entire line
       -v, --version      show program's version number and exit
+      -h, --help         show this help message and exit
 
     With no FILE, or when FILE is -, read standard input. The FORMAT option must
-    be one of: BOLD, UNDERLINE, GREY, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN or
-    WHITE.
+    be one of: BOLD, UNDERLINE, [ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW,
+    [ON]BLUE, [ON]MAGENTA, [ON]CYAN or [ON]WHITE.
+    usage: em [-h] [-i] [-l] [-v] PATTERN FORMAT [FILE [FILE ...]]
 
 The CLI is clear, but some option descriptions are below:
 
