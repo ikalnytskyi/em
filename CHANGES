@@ -12,6 +12,8 @@ Version 0.3
 - More readable code.
 - Remove ``--safe-mode`` option since it's no sense to use this
   software when stdout isn't refers to the terminal.
+- Add FORMAT options for changing background value: ``onred``,
+  ``oncyan`` and so on.
 
 
 Version 0.2.1
