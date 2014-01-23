@@ -1,48 +1,52 @@
-                                //  em  //
-
-                     emphasize expressions in stdout
-
-
-    ~ What is Em?
-
-      Em is a terminal tool that prints FILE(s), or standard input to
-      standard output and highlights the expressions that are matched
-      the PATTERN.
-
-      The expression will be highlighted iff stdout refers to the tty
-      and that tty is ANSI-compatible.
+em [phasize expressions in stdout]
+==================================
 
 
-    ~ Why the name Em?
+What is Em?
+-----------
 
-      The name is an abbreviation of emphasize, a synonym of highlight.
-      BTW, it's easy to write and it's easy to remember since HTML has
-      <em> tag with similar meaning.
+Em is a terminal tool that prints FILE(s), or standard input to standard
+output and highlights the expressions that are matched the PATTERN.
 
-
-    ~ Requirements?
-
-      The terminal must be ANSI-compatible. This criterion is met by
-      most popular terminal emulators on Linux, Unix and MacOS.
-
-      Also, you need Python 2.7, Python 3.2 or above to run Em.
+The expression will be highlighted iff stdout refers to the tty and that
+tty is ANSI-compatible.
 
 
-    ~ How to install?
+Why the name Em?
+----------------
 
-        $ (sudo) pip install em
-
-
-    ~ How to use?
-
-      The most practical usecase for me:
-
-        $ tail -f /path/to/log | em "ERROR" red | em "WARNING" yellow
-
-      See the documentations for details: http://em.readthedocs.org/
+The name is an abbreviation of emphasize, a synonym of highlight. BTW,
+it's easy to write and it's easy to remember since HTML has <em> tag
+with similar meaning.
 
 
-    ~ How to contribute?
+Requirements?
+-------------
 
-      You can report a bug, fix it or share a good idea. You even
-      can make some donate via https://www.gittip.com/ikalnitsky/.
+The terminal must be ANSI-compatible. This criterion is met by most
+popular terminal emulators on Linux, Unix and MacOS.
+
+Also, you need Python 2.7, Python 3.2 or above to run Em.
+
+
+How to install?
+---------------
+
+    $ [sudo] pip install em
+
+
+How to use?
+-----------
+
+The most practical usecase for me:
+
+    $ tail -f /path/to/log | em "ERROR" red | em "WARNING" yellow
+
+See the documentations for details: http://em.readthedocs.org/.
+
+
+How to contribute?
+------------------
+
+You can report a bug, fix it or share a good idea. You even can make
+some donate via https://www.gittip.com/ikalnitsky/.
