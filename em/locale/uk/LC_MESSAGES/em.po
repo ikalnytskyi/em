@@ -1,0 +1,67 @@
+# Copyright (C) 2014, Igor Kalnitsky
+# This file is distributed under the same license as the em program.
+msgid ""
+msgstr ""
+"Project-Id-Version: em\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-19 13:46+0200\n"
+"PO-Revision-Date: 2014-01-24 01:15+0300\n"
+"Last-Translator: Igor Kalnitsky <igor@kalnitsky.org>\n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../__init__.py:145
+msgid ""
+"Em is a terminal tool that prints FILE(s), or standard input to standard "
+"output and highlights the expressions that are matched the PATTERN."
+msgstr ""
+"Em - це програма для терміналу, яка друкує файл(и), або "
+"стандартний потік вводу на стандартний потік виводу, а також підсвічує "
+"вырази, які задовольняють деякому вхідному шаблону."
+
+#: ../__init__.py:149
+msgid ""
+"With no FILE, or when FILE is -, read standard input.  The FORMAT option "
+"must be one of: BOLD, UNDERLINE, [ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, "
+"[ON]BLUE, [ON]MAGENTA, [ON]CYAN or [ON]WHITE."
+msgstr ""
+"Якщо FILE не задано або вказано як -, читає стандартний потік вводу. "
+"Параметр FORMAT може приймати наступні значення: BOLD, UNDERLINE, "
+"[ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE, [ON]MAGENTA, [ON]CYAN "
+"та [ON]WHITE."
+
+#: ../__init__.py:161
+msgid "a pattern to highlight"
+msgstr "шаблон для пошуку"
+
+#: ../__init__.py:165
+msgid "a color to highlight matched expressions"
+msgstr "колір/стиль виділення"
+
+#: ../__init__.py:168
+msgid "search for pattern in these file(s)"
+msgstr "шукати шаблон в цих файлах"
+
+#: ../__init__.py:172
+msgid "ignore case distinctions"
+msgstr "ігнорувати регістр при пошуку"
+
+#: ../__init__.py:175
+msgid "highlight entire line"
+msgstr "виділяти весь рядок"
+
+#: ../__init__.py:179
+msgid "show program's version number and exit"
+msgstr "показати інформвцію про версію і вийти"
+
+#: ../__init__.py:182
+msgid "show this help message and exit"
+msgstr "показати цю довідку і вийти"
+
+#: ../__init__.py:194
+msgid "Unknown format value"
+msgstr "Невідоме значення параметра FORMAT"
