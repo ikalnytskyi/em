@@ -1,47 +1,41 @@
-em changelog
-============
+                           //  em changelog  //
 
-Here you can see the full list of changes between each Em release.
-
-
-Version 0.3
-```````````
-
-(release date to be announced)
-
-- More readable code.
-- Remove ``--safe-mode`` option since it's no sense to use this
-  software when stdout isn't refers to the terminal.
-- Add FORMAT options for changing background value: ``onred``,
-  ``oncyan`` and so on.
+                   list of changes between each release
 
 
-Version 0.2.1
-`````````````
+~ Version 0.3
 
-Released on January 15, 2014.
+  (release date to be announced)
 
-- Install localization files with `./setup.py install`.
-
-
-Version 0.2
-```````````
-
-Released on January 14, 2014.
-
-- Improve processing of /dev/stdin input in Python 2.x.
-- Add ``--line-mode`` option to highlight entire line.
-- Rename ``--safe-output`` option to ``--safe-mode``.
-- Fix handling of EOF in Python 3.x.
-- Fix handling of UTF-8 args and files in Python 2.x.
-- Fix ignore_case for non-ascii strings in Python 2.x.
-- Fix reading files with non-ascii names in Python 2.x.
+  - Add FORMAT options for changing background value: `onred`, `oncyan`
+    and so on.
+  - Remove `--safe-mode` option since it's no sense to use this software
+    when stdout isn't refers to the terminal.
+  - More readable code.
 
 
-Version 0.1
-```````````
+~ Version 0.2.1
 
-Released on January 9, 2014.
+  Released on January 15, 2014.
 
-- First public release.
+  - Install localization files with `./setup.py install`.
 
+
+~ Version 0.2
+
+  Released on January 14, 2014.
+
+  - Improve processing of `/dev/stdin` input in Python 2.x.
+  - Add `--line-mode` option to highlight entire line.
+  - Rename `--safe-output` option to `--safe-mode`.
+  - Fix handling of EOF in Python 3.x.
+  - Fix handling of UTF-8 args and files in Python 2.x.
+  - Fix ignore_case for non-ascii strings in Python 2.x.
+  - Fix reading files with non-ascii names in Python 2.x.
+
+
+~ Version 0.1
+
+  Released on January 9, 2014.
+
+  - First public release.

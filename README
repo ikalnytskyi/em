@@ -1,52 +1,47 @@
-em [phasize expressions in stdout]
-==================================
+                                //  em  //
+
+                      emphasize expressions in stdout
 
 
-What is Em?
------------
+~ What is Em?
 
-Em is a terminal tool that prints FILE(s), or standard input to standard
-output and highlights the expressions that are matched the PATTERN.
+  Em is a terminal tool that prints FILE(s), or standard input to standard
+  output and highlights the expressions that are matched the PATTERN.
 
-The expression will be highlighted iff stdout refers to the tty and that
-tty is ANSI-compatible.
-
-
-Why the name Em?
-----------------
-
-The name is an abbreviation of emphasize, a synonym of highlight. BTW,
-it's easy to write and it's easy to remember since HTML has <em> tag
-with similar meaning.
+  The expression will be highlighted iff stdout refers to the tty and that
+  tty is ANSI-compatible.
 
 
-Requirements?
--------------
+~ Why the name Em?
 
-The terminal must be ANSI-compatible. This criterion is met by most
-popular terminal emulators on Linux, Unix and MacOS.
-
-Also, you need Python 2.7, Python 3.2 or above to run Em.
+  The name is an abbreviation of emphasize, a synonym of highlight. BTW,
+  it's easy to write and it's easy to remember since HTML has <em> tag
+  with similar meaning.
 
 
-How to install?
----------------
+~ Requirements?
 
-    $ [sudo] pip install em
+  The terminal must be ANSI-compatible. This criterion is met by most
+  popular terminal emulators on Linux, Unix and MacOS.
 
-
-How to use?
------------
-
-The most practical usecase for me:
-
-    $ tail -f /path/to/log | em "ERROR" red | em "WARNING" yellow
-
-See the documentations for details: http://em.readthedocs.org/.
+  Also, you need Python 2.7, Python 3.2 or above to run Em.
 
 
-How to contribute?
-------------------
+~ How to install?
 
-You can report a bug, fix it or share a good idea. You even can make
-some donate via https://www.gittip.com/ikalnitsky/.
+      $ [sudo] pip install em
+
+
+~ How to use?
+
+  The most practical usecase for me:
+
+      $ tail -f /path/to/log | em "ERROR" red | em "WARNING" yellow
+
+  See the documentations for details: http://em.readthedocs.org/.
+
+
+~ How to contribute?
+
+  You can report a bug, fix it or share a good idea. You even can make
+  some donate via https://www.gittip.com/ikalnitsky/.
