@@ -19,9 +19,9 @@ msgid ""
 "Em is a terminal tool that prints FILE(s), or standard input to standard "
 "output and highlights the expressions that are matched the PATTERN."
 msgstr ""
-"Em - це програма для терміналу, яка друкує файл(и), або "
+"Em - це програма для терміналу, що друкує файл(и) або "
 "стандартний потік вводу на стандартний потік виводу, а також підсвічує "
-"вырази, які задовольняють деякому вхідному шаблону."
+"вирази, які задовольняють деякому вхідному шаблону."
 
 #: ../__init__.py:149
 msgid ""
@@ -56,7 +56,7 @@ msgstr "виділяти весь рядок"
 
 #: ../__init__.py:179
 msgid "show program's version number and exit"
-msgstr "показати інформвцію про версію і вийти"
+msgstr "показати інформацію про версію і вийти"
 
 #: ../__init__.py:182
 msgid "show this help message and exit"

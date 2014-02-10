@@ -5,8 +5,8 @@
 
 ~ What is Em?
 
-  Em is a terminal tool that prints FILE(s), or standard input to standard
-  output and highlights the expressions that are matched the PATTERN.
+  Em is a terminal tool that prints FILE(s) or standard input to standard
+  output and highlights the expressions that are matching the PATTERN.
 
   The expression will be highlighted iff stdout refers to the tty and that
   tty is ANSI-compatible.
