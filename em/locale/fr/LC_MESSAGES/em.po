@@ -1,0 +1,67 @@
+# Copyright (C) 2014, Igor Kalnitsky
+# This file is distributed under the same license as the em program.
+msgid ""
+msgstr ""
+"Project-Id-Version: em\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-19 13:46+0200\n"
+"PO-Revision-Date: 2014-01-08 01:15+0300\n"
+"Last-Translator: Igor Kalnitsky <igor@kalnitsky.org>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../__init__.py:145
+msgid ""
+"Em is a terminal tool that prints FILE(s), or standard input to standard "
+"output and highlights the expressions that are matched the PATTERN."
+msgstr ""
+"Em est un outil pour le terminal qui affiche un/des FICHIER(s), "
+"où les entrées standards vers les sorties standards et surligne "
+"les expressions qui sont trouvées par le MODELE.”
+
+#: ../__init__.py:149
+msgid ""
+"With no FILE, or when FILE is -, read standard input.  The FORMAT option "
+"must be one of: BOLD, UNDERLINE, [ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, "
+"[ON]BLUE, [ON]MAGENTA, [ON]CYAN or [ON]WHITE."
+msgstr ""
+"Sans le FICHIER ou quand le FICHIER est -, lire la donnée standard. "
+"Le FORMAT option doit être l'un des choix suivants: GRAS, SOULIGNE, [ALLUME] GRIS, "
+"[ALLUME] RED, [ALLUME] VERT, [ALLUME] JAUNE [ALLUME] BLEU, [ALLUME] MAGENTA, "
+"[ALLUME] CYAN ou [ALLUME] BLANC."
+
+#: ../__init__.py:161
+msgid "a pattern to highlight"
+msgstr "un modèle pour surligner"
+
+#: ../__init__.py:165
+msgid "a color to highlight matched expressions"
+msgstr "une couleur pour surligner les expressions correspondantes"
+
+#: ../__init__.py:168
+msgid "search for pattern in these file(s)"
+msgstr "chercher le modèles dans ce(s) fichier(s)"
+
+#: ../__init__.py:172
+msgid "ignore case distinctions"
+msgstr "ignorer les registres distinctions"
+
+#: ../__init__.py:175
+msgid "highlight entire line"
+msgstr "surligner toute la ligne"
+
+#: ../__init__.py:179
+msgid "show program's version number and exit"
+msgstr "montrer la version du logiciel et sortir" 
+
+#: ../__init__.py:182
+msgid "show this help message and exit"
+msgstr "montrer ce message d’aide et sortir"
+
+#: ../__init__.py:194
+msgid "Unknown format value"
+msgstr “Format inconnu"
