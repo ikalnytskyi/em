@@ -1,12 +1,12 @@
-# Copyright (C) 2014, Igor Kalnitsky
+# Copyright (C) 2014, Andrii Gamaiunov
 # This file is distributed under the same license as the em program.
 msgid ""
 msgstr ""
 "Project-Id-Version: em\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-19 13:46+0200\n"
-"PO-Revision-Date: 2014-01-08 01:15+0300\n"
-"Last-Translator: Igor Kalnitsky <igor@kalnitsky.org>\n"
+"POT-Creation-Date: 2014-02-13 13:46+0200\n"
+"PO-Revision-Date: 2014-02-13 01:15+0300\n"
+"Last-Translator: Andrii Gamaiunov <agdrew4@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Em est un outil pour le terminal qui affiche un/des FICHIER(s), "
 "où les entrées standards vers les sorties standards et surligne "
-"les expressions qui sont trouvées par le MODELE.”
+"les expressions qui sont trouvées par le MODELE."
 
 #: ../__init__.py:149
 msgid ""
@@ -30,9 +30,9 @@ msgid ""
 "[ON]BLUE, [ON]MAGENTA, [ON]CYAN or [ON]WHITE."
 msgstr ""
 "Sans le FICHIER ou quand le FICHIER est -, lire la donnée standard. "
-"Le FORMAT option doit être l'un des choix suivants: GRAS, SOULIGNE, [ALLUME] GRIS, "
-"[ALLUME] RED, [ALLUME] VERT, [ALLUME] JAUNE [ALLUME] BLEU, [ALLUME] MAGENTA, "
-"[ALLUME] CYAN ou [ALLUME] BLANC."
+"Le FORMAT option doit être l'un des choix suivants: BOLD, UNDERLINE, "
+"[ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE, [ON]MAGENTA, [ON]CYAN "
+"ou [ON]WHITE."
 
 #: ../__init__.py:161
 msgid "a pattern to highlight"
@@ -60,8 +60,8 @@ msgstr "montrer la version du logiciel et sortir"
 
 #: ../__init__.py:182
 msgid "show this help message and exit"
-msgstr "montrer ce message d’aide et sortir"
+msgstr "montrer ce message d'aide et sortir"
 
 #: ../__init__.py:194
 msgid "Unknown format value"
-msgstr “Format inconnu"
+msgstr "Format inconnu"
