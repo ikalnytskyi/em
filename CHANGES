@@ -3,13 +3,20 @@
                    list of changes between each release
 
 
+~ Version 0.4
+
+  (release date to be announced)
+
+  - Add French localization.
+
+
 ~ Version 0.3
 
   Released on January 24, 2014.
 
   - Add FORMAT options for changing background value: `onred`, `oncyan`
     and so on.
-  - Add ukrainian localization.
+  - Add Ukrainian localization.
   - Remove `--safe-mode` option since it's no sense to use this software
     when stdout isn't refers to the terminal.
   - More readable code.

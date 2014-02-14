@@ -21,7 +21,7 @@ import gettext
 import argparse
 
 
-__version__ = '0.3'
+__version__ = '0.4-dev'
 
 
 #: True if Python 2.x interpreter was detected
