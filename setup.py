@@ -25,13 +25,62 @@ Links
 * `source code <https://github.com/ikalnitsky/em>`_
 
 """
-from setuptools import setup
-from em import __version__
+import os
+import glob
+import subprocess
+
+from setuptools import setup, Command
+from em import __version__ as em_version
+
+
+class LocaleUpdate(Command):
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        root = os.path.dirname(__file__)
+
+        src = os.path.join(root, 'em', '__init__.py')
+        pot = os.path.join(root, 'em', 'locale', 'em.pot')
+        pos = glob.glob(os.path.join(
+            root, 'em', 'locale', '*', 'LC_MESSAGES', 'em.po'))
+
+        # update .pot file
+        subprocess.call(['xgettext', src, '--output', pot])
+
+        # update .po files from .pot
+        for po in pos:
+            subprocess.call(['msgmerge', '--update', '--backup=off', po, pot])
+
+
+class LocaleCompile(Command):
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        root = os.path.dirname(__file__)
+        pos = glob.glob(os.path.join(
+            root, 'em', 'locale', '*', 'LC_MESSAGES', 'em.po'))
+
+        # compile .po files to .mo
+        for po in pos:
+            mo = '{0}.mo'.format(os.path.splitext(po)[0])
+            subprocess.call(['msgfmt', po, '--output-file', mo])
 
 
 setup(
     name='em',
-    version=__version__,
+    version=em_version,
     url='https://github.com/ikalnitsky/em',
     license='BSD',
     author='Igor Kalnitsky',
@@ -57,5 +106,11 @@ setup(
         'Programming Language :: Python :: 3.4',
         'License :: OSI Approved :: BSD License',
     ],
-    platforms=['Linux', 'MacOS', 'Unix']
+    platforms=['Linux', 'MacOS', 'Unix'],
+
+    # add custom commands to manage locale files
+    cmdclass={
+        'locale_update': LocaleUpdate,
+        'locale_compile': LocaleCompile,
+    },
 )

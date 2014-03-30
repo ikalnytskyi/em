@@ -141,6 +141,8 @@ def get_arguments():
         return string.decode(sys.getfilesystemencoding()) if PY2 else string
 
     parser = argparse.ArgumentParser(
+        usage=_(
+            'em [OPTION]... PATTERN FORMAT [FILE]...'),
         description=_(
             'Em is a terminal tool that prints FILE(s), or standard '
             'input to standard output and highlights the expressions that '
