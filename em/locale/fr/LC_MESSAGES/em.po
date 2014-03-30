@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: em\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-13 13:46+0200\n"
+"POT-Creation-Date: 2014-03-31 01:39+0300\n"
 "PO-Revision-Date: 2014-02-13 01:15+0300\n"
 "Last-Translator: Andrii Gamaiunov <agdrew4@gmail.com>\n"
 "Language-Team: \n"
@@ -14,54 +14,57 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../__init__.py:145
+#: em/__init__.py:145
+msgid "em [OPTION]... PATTERN FORMAT [FILE]..."
+msgstr "em [OPTION]... MOTIF FORMAT [FICHIER]..."
+
+#: em/__init__.py:147
 msgid ""
 "Em is a terminal tool that prints FILE(s), or standard input to standard "
 "output and highlights the expressions that are matched the PATTERN."
 msgstr ""
-"Em est un outil pour le terminal qui affiche un/des FICHIER(s), "
-"où les entrées standards vers les sorties standards et surligne "
-"les expressions qui sont trouvées par le MODELE."
+"Em est un outil pour le terminal qui affiche un/des FICHIER(s), où les "
+"entrées standards vers les sorties standards et surligne les expressions qui "
+"sont trouvées par le MOTIF."
 
-#: ../__init__.py:149
+#: em/__init__.py:151
 msgid ""
 "With no FILE, or when FILE is -, read standard input.  The FORMAT option "
 "must be one of: BOLD, UNDERLINE, [ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, "
 "[ON]BLUE, [ON]MAGENTA, [ON]CYAN or [ON]WHITE."
 msgstr ""
-"Sans le FICHIER ou quand le FICHIER est -, lire la donnée standard. "
-"Le FORMAT option doit être l'un des choix suivants: BOLD, UNDERLINE, "
-"[ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE, [ON]MAGENTA, [ON]CYAN "
-"ou [ON]WHITE."
+"Sans le FICHIER ou quand le FICHIER est -, lire la donnée standard. Le "
+"FORMAT option doit être l'un des choix suivants: BOLD, UNDERLINE, [ON]GREY, "
+"[ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE, [ON]MAGENTA, [ON]CYAN ou [ON]WHITE."
 
-#: ../__init__.py:161
+#: em/__init__.py:163
 msgid "a pattern to highlight"
-msgstr "un modèle pour surligner"
+msgstr "un motif pour surligner"
 
-#: ../__init__.py:165
+#: em/__init__.py:167
 msgid "a color to highlight matched expressions"
 msgstr "une couleur pour surligner les expressions correspondantes"
 
-#: ../__init__.py:168
+#: em/__init__.py:170
 msgid "search for pattern in these file(s)"
-msgstr "chercher le modèles dans ce(s) fichier(s)"
+msgstr "chercher le motif dans ce(s) fichier(s)"
 
-#: ../__init__.py:172
+#: em/__init__.py:174
 msgid "ignore case distinctions"
 msgstr "ignorer les registres distinctions"
 
-#: ../__init__.py:175
+#: em/__init__.py:177
 msgid "highlight entire line"
 msgstr "surligner toute la ligne"
 
-#: ../__init__.py:179
+#: em/__init__.py:181
 msgid "show program's version number and exit"
-msgstr "montrer la version du logiciel et sortir" 
+msgstr "montrer la version du logiciel et sortir"
 
-#: ../__init__.py:182
+#: em/__init__.py:184
 msgid "show this help message and exit"
 msgstr "montrer ce message d'aide et sortir"
 
-#: ../__init__.py:194
+#: em/__init__.py:196
 msgid "Unknown format value"
 msgstr "Format inconnu"

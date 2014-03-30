@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: em\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-19 13:46+0200\n"
+"POT-Creation-Date: 2014-03-31 01:39+0300\n"
 "PO-Revision-Date: 2014-01-08 01:15+0300\n"
 "Last-Translator: Igor Kalnitsky <igor@kalnitsky.org>\n"
 "Language-Team: \n"
@@ -14,54 +14,57 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../__init__.py:145
+#: em/__init__.py:145
+msgid "em [OPTION]... PATTERN FORMAT [FILE]..."
+msgstr "em [ПАРАМЕТР]... ШАБЛОН ФОРМАТ [ФАЙЛ]..."
+
+#: em/__init__.py:147
 msgid ""
 "Em is a terminal tool that prints FILE(s), or standard input to standard "
 "output and highlights the expressions that are matched the PATTERN."
 msgstr ""
-"Em - это программа для терминала, которая печатает файл(ы), или стандартный "
+"Em - это программа для терминала, которая печатает ФАЙЛ(ы), или стандартный "
 "поток ввода на стандартный поток вывода, а также подсвечивает выражения, "
-"которые удовлетворяют некоторому входному шаблону."
+"которые удовлетворяют некоторый входной ШАБЛОН."
 
-#: ../__init__.py:149
+#: em/__init__.py:151
 msgid ""
 "With no FILE, or when FILE is -, read standard input.  The FORMAT option "
 "must be one of: BOLD, UNDERLINE, [ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, "
 "[ON]BLUE, [ON]MAGENTA, [ON]CYAN or [ON]WHITE."
 msgstr ""
-"Если FILE не задан или задан как -, читает стандартный поток ввода. "
-"Параметр FORMAT может принимать следующие значения: BOLD, UNDERLINE, "
-"[ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE, [ON]MAGENTA, [ON]CYAN "
-"и [ON]WHITE."
+"Если ФАЙЛ не задан или задан как -, читает стандартный поток ввода. Параметр "
+"ФОРМАТ может принимать следующие значения: BOLD, UNDERLINE, [ON]GREY, "
+"[ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE, [ON]MAGENTA, [ON]CYAN и [ON]WHITE."
 
-#: ../__init__.py:161
+#: em/__init__.py:163
 msgid "a pattern to highlight"
 msgstr "шаблон для поиска"
 
-#: ../__init__.py:165
+#: em/__init__.py:167
 msgid "a color to highlight matched expressions"
 msgstr "цвет/стиль выделения"
 
-#: ../__init__.py:168
+#: em/__init__.py:170
 msgid "search for pattern in these file(s)"
 msgstr "искать шаблон в этих файлах"
 
-#: ../__init__.py:172
+#: em/__init__.py:174
 msgid "ignore case distinctions"
 msgstr "игнорировать регистр при поиске"
 
-#: ../__init__.py:175
+#: em/__init__.py:177
 msgid "highlight entire line"
 msgstr "выделять всю строку"
 
-#: ../__init__.py:179
+#: em/__init__.py:181
 msgid "show program's version number and exit"
 msgstr "показать информацию о версии и выйти"
 
-#: ../__init__.py:182
+#: em/__init__.py:184
 msgid "show this help message and exit"
 msgstr "показать эту справку и выйти"
 
-#: ../__init__.py:194
+#: em/__init__.py:196
 msgid "Unknown format value"
-msgstr "Неизвестное значение параметра FORMAT"
+msgstr "Неизвестное значение параметра ФОРМАТ"
