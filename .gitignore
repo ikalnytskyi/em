@@ -6,6 +6,9 @@ dist/
 # ignore python's temp files
 *.pyc
 
+# ignore tox envs
+.tox/
+
 # ignore common virtualenv folders
 venv/
 venv27/

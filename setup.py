@@ -85,12 +85,14 @@ setup(
     license='BSD',
     author='Igor Kalnitsky',
     author_email='igor@kalnitsky.org',
-    description='Highlight some PATTERN in terminal\'s STDOUT',
+    description="Highlight some PATTERN in terminal's STDOUT",
     long_description=__doc__,
     include_package_data=True,
     packages=[
         'em',
+        'em.tests',
     ],
+    test_suite='em.tests',
     entry_points={
         'console_scripts': ['em = em:main'],
     },
