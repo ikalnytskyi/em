@@ -23,6 +23,9 @@ installation::
 
     $ [sudo] pip install em
 
+.. note:: For some reason the Python 2.6 support has been added, but
+    ``argparse`` is required and will be installed from PyPI.
+
 
 Quickstart
 ----------

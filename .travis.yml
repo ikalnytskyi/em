@@ -5,6 +5,7 @@ branches:
     - master
 
 env:
+  - TOXENV=py26
   - TOXENV=py27
   - TOXENV=py32
   - TOXENV=py33

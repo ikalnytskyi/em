@@ -21,7 +21,7 @@ import gettext
 import argparse
 
 
-__version__ = '0.4-dev'
+__version__ = '0.4.dev'
 
 
 #: True if Python 2.x interpreter was detected
@@ -118,7 +118,7 @@ def emphasize(stream, patterns):
         flags = re.UNICODE
         flags |= re.IGNORECASE if v['ignore_case'] else 0
         return re.compile('(%s)' % k, flags)
-    patterns = {re_compile(k, v): v for k, v in patterns.items()}
+    patterns = dict((re_compile(k, v), v) for k, v in patterns.items())
 
     # don't use `stream.read()` (or its iterative interface) here as it can
     # possibly block until the block of the requested size is read fully

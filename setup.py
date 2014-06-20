@@ -30,7 +30,13 @@ import glob
 import subprocess
 
 from setuptools import setup, Command
-from em import __version__ as em_version
+
+
+install_requires = []
+try:
+    import argparse  # NOQA
+except ImportError:
+    install_requires.append('argparse')
 
 
 class LocaleUpdate(Command):
@@ -80,7 +86,7 @@ class LocaleCompile(Command):
 
 setup(
     name='em',
-    version=em_version,
+    version='0.4.dev',
     url='https://github.com/ikalnitsky/em',
     license='BSD',
     author='Igor Kalnitsky',
@@ -92,6 +98,7 @@ setup(
         'em',
         'em.tests',
     ],
+    install_requires=install_requires,
     test_suite='em.tests',
     entry_points={
         'console_scripts': ['em = em:main'],

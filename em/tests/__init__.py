@@ -96,3 +96,10 @@ class EmTestCase(unittest.TestCase):
         # send data to stdin if needed
         standard_output, _ = p.communicate(input=standard_input)
         return standard_output.decode('utf-8')
+
+
+if 'assertIn' not in dir(EmTestCase):
+    EmTestCase.assertIn = lambda _, v, c: v in c
+
+if 'assertNotIn' not in dir(EmTestCase):
+    EmTestCase.assertNotIn = lambda _, v, c: v not in c
