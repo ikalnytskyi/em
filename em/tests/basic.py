@@ -14,48 +14,44 @@ from em.tests import EmTestCase
 
 
 class BasicFunctionalityTestCase(EmTestCase):
+    #: a sample text to be used in different test cases
+    text = [
+        'I am immortal, I have inside me blood of kings - yeah - yeah',
+        'I have no rival, no man can be my equal',
+        'Take me to the future of you all',
+    ]
 
-    def setUp(self):
-        """
-        Prepare some helper stuff for tests.
-        """
-        super(BasicFunctionalityTestCase, self).setUp()
-
-        #: a sample text to be used in different test cases
-        self.text = [
-            'I am immortal, I have inside me blood of kings - yeah - yeah',
-            'I have no rival, no man can be my equal',
-            'Take me to the future of you all',
-        ]
-
-    def test_run_with_default(self):
-        output = self.execute(['em', 'rival', '-f', 'RED'], self.text)
-        self.assertColoredPhraseIn('rival', 'red', output)
+    #: default color
+    default_format = 'red'
 
     def test_run_with_no_result(self):
-        output = self.execute(['em', 'Monte-Cristo', '-f', 'RED'], self.text)
-        self.assertColoredPhraseNotIn('Monte-Cristo', 'red', output)
+        output = self.execute(['em', 'Monte-Cristo'], self.text)
+        self.assertColoredPhraseNotIn('Monte-Cristo', self.default_format, output)
 
-    def test_run_with_a_few_words(self):
-        output = self.execute(['em', 'no man', '-f', 'green'], self.text)
-        self.assertColoredPhraseIn('no man', 'green', output)
+    def test_run_with_one_word(self):
+        output = self.execute(['em', 'rival'], self.text)
+        self.assertColoredPhraseIn('rival', self.default_format, output)
+
+    def test_run_with_few_words(self):
+        output = self.execute(['em', 'no man'], self.text)
+        self.assertColoredPhraseIn('no man', self.default_format, output)
 
     def test_run_with_line_mode(self):
-        output = self.execute(['em', 'future', '-f', 'blue', '-l'], self.text)
-        self.assertColoredPhraseIn(self.text[-1], 'blue', output)
+        output = self.execute(['em', 'future', '-l'], self.text)
+        self.assertColoredPhraseIn(self.text[-1], self.default_format, output)
 
     def test_run_with_ignore_case(self):
-        output = self.execute(['em', 'No MaN', '-f', 'bold'], self.text)
-        self.assertColoredPhraseNotIn('no man', 'bold', output)
+        output = self.execute(['em', 'No MaN'], self.text)
+        self.assertColoredPhraseNotIn('no man', self.default_format, output)
 
-        output = self.execute(['em', 'No MaN', '-f', 'cyan', '-i'], self.text)
-        self.assertColoredPhraseIn('no man', 'cyan', output)
+        output = self.execute(['em', 'No MaN', '-i'], self.text)
+        self.assertColoredPhraseIn('no man', self.default_format, output)
 
     def test_run_with_multiple_arguments(self):
-        output = self.execute(['em', 'BLOOD', '-f', 'red', '-i', '-l'], self.text)
-        self.assertColoredPhraseIn(self.text[0], 'red', output)
+        output = self.execute(['em', 'BLOOD', '-f', 'cyan', '-i', '-l'], self.text)
+        self.assertColoredPhraseIn(self.text[0], 'cyan', output)
 
-    def test_formatting_feature(self):
+    def test_run_with_format(self):
         formats = (
             'bold',
             'underline',
