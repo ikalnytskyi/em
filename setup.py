@@ -86,7 +86,7 @@ class LocaleCompile(Command):
 
 setup(
     name='em',
-    version='0.4.dev',
+    version='0.4.0',
     url='https://github.com/ikalnitsky/em',
     license='BSD',
     author='Igor Kalnitsky',
@@ -108,6 +108,7 @@ setup(
         'Environment :: Console',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',

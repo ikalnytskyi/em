@@ -21,7 +21,7 @@ import gettext
 import argparse
 
 
-__version__ = '0.4.dev'
+__version__ = '0.4.0'
 
 
 #: True if Python 2.x interpreter was detected
@@ -142,7 +142,7 @@ def get_arguments():
 
     parser = argparse.ArgumentParser(
         usage=_(
-            'em [OPTION]... PATTERN FORMAT [FILE]...'),
+            'em [OPTION]... PATTERN [FILE]...'),
         description=_(
             'Em is a terminal tool that prints FILE(s), or standard '
             'input to standard output and highlights the expressions that '

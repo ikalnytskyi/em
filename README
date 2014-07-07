@@ -24,7 +24,7 @@
   The terminal must be ANSI-compatible. This criterion is met by most
   popular terminal emulators on Linux, Unix and MacOS.
 
-  Also, you need Python 2.7, Python 3.2 or above to run Em.
+  Also, you need Python 2.6, Python 3.2 or above to run Em.
 
 
 ~ How to install?

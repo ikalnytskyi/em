@@ -9,6 +9,7 @@
 
   - Add French localization.
   - Add Python 2.6 support.
+  - Change FORMAT from positional argument to optional one.
 
 
 ~ Version 0.3

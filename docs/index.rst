@@ -32,14 +32,14 @@ Quickstart
 
 Em is cool and easy to use. The most practical usecase for me::
 
-    $ tail -f /path/to/log | em "ERROR" red | em "iphone:" green
+    $ tail -f /path/to/log | em "ERROR" | em "iphone:" -f green
 
 The example above highlights all occurrences of «ERROR» in red and all
 occurrences of «iphone:» in green when watching the log.
 
 But you can use em in the following way::
 
-    $ em "ERROR|CRITICAL" red /path/to/log
+    $ em "ERROR|CRITICAL" /path/to/log
 
 which prints the log and highlights all occurrences of «ERROR» or
 «CRITICAL» in red.
@@ -50,29 +50,33 @@ Options
 
 Here is a command line interface of Em::
 
-    usage: em [-i] [-l] [-v] [-h] PATTERN FORMAT [FILE [FILE ...]]
+    usage: em [OPTION]... PATTERN [FILE]...
 
     Em is a terminal tool that prints FILE(s), or standard input to standard
     output and highlights the expressions that are matched the PATTERN.
 
     positional arguments:
-      PATTERN            a pattern to highlight
-      FORMAT             a color to highlight matched expressions
-      FILE               search for pattern in these file(s)
+      PATTERN               a pattern to highlight
+      FILE                  search for pattern in these file(s)
 
     optional arguments:
-      -i, --ignore-case  ignore case distinctions
-      -l, --line-mode    highlight entire line
-      -v, --version      show program's version number and exit
-      -h, --help         show this help message and exit
+      -f FORMAT, --format FORMAT
+                            a color to highlight matched expressions
+      -i, --ignore-case     ignore case distinctions
+      -l, --line-mode       highlight entire line
+      -v, --version         show program's version number and exit
+      -h, --help            show this help message and exit
 
-    With no FILE, or when FILE is -, read standard input. The FORMAT option must
-    be one of: BOLD, UNDERLINE, [ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW,
-    [ON]BLUE, [ON]MAGENTA, [ON]CYAN or [ON]WHITE.
+    With no FILE, or when FILE is -, read standard input. The FORMAT option may be
+    one of: BOLD, UNDERLINE, [ON]GREY, [ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE,
+    [ON]MAGENTA, [ON]CYAN or [ON]WHITE. Default is RED.
 
 The CLI is clear, but some option descriptions are below:
 
 ======================   =====================================================
+ ``--format``             Highlight matched PATTERN with that color.
+                          (default: RED)
+----------------------   -----------------------------------------------------
  ``--ignore-case``        Case insensitive search for the PATTERN.
 ----------------------   -----------------------------------------------------
  ``--line-mode``          Highlights the entire line if PATTERN was found in
