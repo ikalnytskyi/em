@@ -29,30 +29,30 @@ class BasicFunctionalityTestCase(EmTestCase):
         ]
 
     def test_run_with_default(self):
-        output = self.execute(['em', 'rival', 'RED'], self.text)
+        output = self.execute(['em', 'rival', '-f', 'RED'], self.text)
         self.assertColoredPhraseIn('rival', 'red', output)
 
     def test_run_with_no_result(self):
-        output = self.execute(['em', 'Monte-Cristo', 'RED'], self.text)
+        output = self.execute(['em', 'Monte-Cristo', '-f', 'RED'], self.text)
         self.assertColoredPhraseNotIn('Monte-Cristo', 'red', output)
 
     def test_run_with_a_few_words(self):
-        output = self.execute(['em', 'no man', 'green'], self.text)
+        output = self.execute(['em', 'no man', '-f', 'green'], self.text)
         self.assertColoredPhraseIn('no man', 'green', output)
 
     def test_run_with_line_mode(self):
-        output = self.execute(['em', 'future', 'blue', '-l'], self.text)
+        output = self.execute(['em', 'future', '-f', 'blue', '-l'], self.text)
         self.assertColoredPhraseIn(self.text[-1], 'blue', output)
 
     def test_run_with_ignore_case(self):
-        output = self.execute(['em', 'No MaN', 'bold'], self.text)
+        output = self.execute(['em', 'No MaN', '-f', 'bold'], self.text)
         self.assertColoredPhraseNotIn('no man', 'bold', output)
 
-        output = self.execute(['em', 'No MaN', 'cyan', '-i'], self.text)
+        output = self.execute(['em', 'No MaN', '-f', 'cyan', '-i'], self.text)
         self.assertColoredPhraseIn('no man', 'cyan', output)
 
     def test_run_with_multiple_arguments(self):
-        output = self.execute(['em', 'BLOOD', 'red', '-i', '-l'], self.text)
+        output = self.execute(['em', 'BLOOD', '-f', 'red', '-i', '-l'], self.text)
         self.assertColoredPhraseIn(self.text[0], 'red', output)
 
     def test_formatting_feature(self):
@@ -82,5 +82,5 @@ class BasicFunctionalityTestCase(EmTestCase):
         for format_ in formats:
             # test both uppercased and lowercased variants
             for fmt in (format_.lower(), format_.upper()):
-                output = self.execute(['em', 'immortal', fmt], self.text)
+                output = self.execute(['em', 'immortal', '-f', fmt], self.text)
                 self.assertColoredPhraseIn('immortal', fmt, output)

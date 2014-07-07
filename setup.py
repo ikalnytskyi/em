@@ -15,7 +15,7 @@ Em is Cool
 
 .. code:: bash
 
-    $ tail -f /path/to/log | em "DEBUG|INFO" GREEN | em "WARN" yellow
+    $ tail -f /path/to/log | em "DEBUG|INFO" -f green | em "WARN"
 
 
 Links

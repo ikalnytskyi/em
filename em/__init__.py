@@ -150,9 +150,9 @@ def get_arguments():
         epilog=_(
             'With no FILE, or when FILE is -, read standard input.'
             '  '
-            'The FORMAT option must be one of: BOLD, UNDERLINE, [ON]GREY, '
+            'The FORMAT option may be one of: BOLD, UNDERLINE, [ON]GREY, '
             '[ON]RED, [ON]GREEN, [ON]YELLOW, [ON]BLUE, [ON]MAGENTA, [ON]CYAN '
-            'or [ON]WHITE.'),
+            'or [ON]WHITE. Default is RED.'),
 
         # disable it and add help option manually
         # we need this trick to localize help message
@@ -163,7 +163,7 @@ def get_arguments():
     arg.help = _('a pattern to highlight')
     arg.type = _str_to_unicode
 
-    arg = parser.add_argument('format', metavar='FORMAT')
+    arg = parser.add_argument('-f', '--format', metavar='FORMAT', default='RED')
     arg.help = _('a color to highlight matched expressions')
 
     arg = parser.add_argument('files', metavar='FILE', nargs='*', default=['-'])

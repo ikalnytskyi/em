@@ -36,7 +36,7 @@
 
   The most practical usecase for me:
 
-      $ tail -f /path/to/log | em "ERROR" red | em "WARNING" yellow
+      $ tail -f /path/to/log | em "ERROR" -f red | em "WARNING" -f yellow
 
   See the documentations for details: http://em.readthedocs.org/.
 
